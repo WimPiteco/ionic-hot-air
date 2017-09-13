@@ -1,14 +1,48 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Hot Air
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-grid>
+    <Button ion-button *ngIf="!isTracking" (click)="startTracking()" class="start-button">Start Tracking</Button>
+    <Button ion-button *ngIf="isTracking" (click)="stopTracking()" class="stop-button">Stop Tracking</Button>
+    <ion-list no-lines>
+        <button ion-item >Latitude: {{latitude}}</button>
+        <button ion-item >Longitude: {{longitude}}</button>
+        <button ion-item >Altitude: {{altitude}}</button>
+        <button ion-item >speed: {{speed}}</button>
+        <button ion-item >direction: {{direction}}</button>
+        <button ion-item >Error: {{Err}}</button>
+    </ion-list>
+  </ion-grid>
 </ion-content>
+<!-- 
+  <Image src="res://logo_login" stretch="none" horizontalAlignment="center"></Image>
+  <TextField hint="Email Address" keyboardType="email" [(ngModel)]="email" autocorrect="false" autocapitalizationType="none"></TextField>
+  <TextField hint="Password" secure="true"></TextField>
+
+
+  <Button text="Start Tracking" [visibility]="isTracking ? 'collapsed' : 'visible' " class="start-button" (tap)="startTracking()"></Button>
+  <Button text="Stop Tracking" [visibility]="isTracking ? 'visible' : 'collapsed'" class="stop-button" (tap)="stopTracking()"></Button>
+  <Label [text]="isTracking ? 'Tracking in progress...' : 'Tracking stopped'"></Label>
+  <Label text="Latitude: {{ latitude }}"></Label>
+  <Label text="Longitude: {{ longitude }}"></Label>
+  <Label text="Altitude: {{ altitude }}"></Label>
+  <Label text="Speed: {{ speed }}"></Label>
+  <Label text="Direction: {{ direction }}"></Label>
+  <Label text="TimeStamp: {{ timestamp }}"></Label> 
+  <ListView [items]="positions">
+      <ng-template let-position="item" let-i="index">
+          <StackLayout>
+              <Label [text]='"[" + position.id +"]" + " Time:" + position.timestamp'></Label>
+              <Label [text]='"Lat:" + position.latitude + " Lng:" + position.longitude'></Label>
+              <Label [text]='"Alt:" + position.altitude  '></Label>
+              <Label [text]='"Spd:" + position.speed + " Dir:" + position.direction '></Label>
+          </StackLayout>
+      </ng-template>
+  </ListView>
+</ion-grid> -->
